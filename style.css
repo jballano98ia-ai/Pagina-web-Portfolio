@@ -1,0 +1,315 @@
+/* Paleta híbrida inspirada en 21st.dev: Fondo cibernético oscuro con verde neón deportivo */
+:root {
+    --bg-primary: #0a0e17;
+    --bg-card: rgba(16, 24, 48, 0.75);
+    --border-color: rgba(255, 255, 255, 0.06);
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --accent-color: #39ff14; /* Verde neón eléctrico */
+    --accent-gradient: linear-gradient(135deg, #39ff14 0%, #047857 100%);
+    --glow-color: rgba(57, 255, 20, 0.15);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    padding: 2rem 1rem;
+    min-height: 100vh;
+}
+
+.grid-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(var(--border-color) 1px, transparent 1px),
+                      linear-gradient(90deg, var(--border-color) 1px, transparent 1px);
+    background-size: 45px 45px;
+    z-index: -1;
+    opacity: 0.5;
+}
+
+.card, header.profile-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 1.8rem;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover {
+    border-color: rgba(57, 255, 20, 0.4);
+    box-shadow: 0 12px 40px var(--glow-color);
+    transform: translateY(-3px);
+}
+
+header.profile-card {
+    max-width: 1000px;
+    margin: 0 auto 2rem auto;
+}
+
+.profile-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.avatar-container {
+    width: 80px;
+    height: 80px;
+    background: var(--accent-gradient);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: #000;
+    box-shadow: 0 0 25px var(--glow-color);
+}
+
+.profile-info h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.3rem;
+}
+
+.subtitle {
+    color: var(--accent-color);
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+}
+
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.tag {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-color);
+    padding: 0.4rem 0.9rem;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* Layout Estructural */
+.main-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+@media(min-width: 768px) {
+    .main-container {
+        display: table;
+        width: 100%;
+    }
+    .sidebar-section {
+        display: table-cell;
+        width: 35%;
+        padding-right: 1.5rem;
+        vertical-align: top;
+    }
+    .content-section {
+        display: table-cell;
+        width: 65%;
+        vertical-align: top;
+    }
+}
+
+h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.6rem;
+}
+
+h2 i {
+    color: var(--accent-color);
+    margin-right: 0.5rem;
+}
+
+/* Indicadores Numéricos */
+.metrics-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.metric-item {
+    text-align: center;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+}
+
+.metric-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--accent-color);
+    line-height: 1;
+    margin-bottom: 0.2rem;
+}
+
+.metric-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Etiquetas de Habilidades */
+.skill-pill-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.skill-pill {
+    background: rgba(57, 255, 20, 0.08);
+    border: 1px solid rgba(57, 255, 20, 0.2);
+    color: #a3f7bf;
+    padding: 0.4rem 0.8rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.contact-list {
+    list-style: none;
+}
+
+.contact-list li {
+    margin-bottom: 0.8rem;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+.contact-list i {
+    width: 24px;
+    color: var(--accent-color);
+}
+
+.summary-card p {
+    line-height: 1.6;
+    color: var(--text-muted);
+}
+
+/* Línea de Tiempo */
+.timeline {
+    border-left: 2px solid var(--border-color);
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: calc(-1.5rem - 6px);
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    background: var(--accent-color);
+    border-radius: 50%;
+}
+
+.tech-dot {
+    background: #00e5ff;
+    box-shadow: 0 0 10px #00e5ff;
+}
+
+.academic-dot {
+    background: #fff;
+    box-shadow: 0 0 10px #fff;
+}
+
+.timeline-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.4rem;
+}
+
+.timeline-header h3 {
+    font-size: 1.1rem;
+}
+
+.date {
+    font-size: 0.85rem;
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.company {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-bottom: 0.6rem;
+}
+
+.experience-details {
+    padding-left: 1.2rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.experience-details li {
+    margin-bottom: 0.5rem;
+}
+
+/* Contenedor CTA */
+.cta-container {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.interactive-btn {
+    background: var(--accent-gradient);
+    color: #04080f;
+    border: none;
+    padding: 1rem 2.5rem;
+    border-radius: 14px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 20px var(--glow-color);
+    transition: all 0.3s ease;
+}
+
+.interactive-btn:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 30px rgba(57, 255, 20, 0.5);
+}
+
+/* Animaciones */
+.animate-fade-in {
+    opacity: 0;
+    transform: translateY(15px);
+    animation: fadeIn 0.6s forwards ease-out;
+}
+.delay-1 { animation-delay: 0.15s; }
+.delay-2 { animation-delay: 0.3s; }
+
+@keyframes fadeIn {
+    to { opacity: 1; transform: translateY(0); }
+}
